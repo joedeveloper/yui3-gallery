@@ -1526,7 +1526,7 @@ YUI.add('gallery-effects', function(Y) {
 	
 	Y.Array.each(effects, function (effect) {
 		ExtObj[effect] = function (node, config) {
-			config = Y.merge({ node: Y.get(node) }, config || {});
+			config = Y.merge({ node: Y.one(node) }, config || {});
 			
 			var created = new Y.Effects[effect.charAt(0).toUpperCase() + effect.substring(1)](config);
 		};

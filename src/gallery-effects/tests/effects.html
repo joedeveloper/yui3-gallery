@@ -3,7 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>gallery-effects Tests</title>
-	<script src="http://yui.yahooapis.com/3.0.0/build/yui/yui-min.js"></script>
+	<script src="http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js"></script>
 	
 	<script src="../../../build/gallery-effects/gallery-effects.js" type="text/javascript"></script>
 	
@@ -241,12 +241,12 @@
 			bindEffect = function (effect, options) {
 				var capitalized = effect.charAt(0).toUpperCase() + effect.substring(1);
 					
-				Y.get("#" + effect + "_class").on("click", function () {
+				Y.one("#" + effect + "_class").on("click", function () {
 					new Y.Effects[capitalized](Y.merge({ node: "#" + effect}, options));
 				});
 				
-				Y.get("#" + effect + "_method").on("click", function () {
-					Y.get("#" + effect)[effect](options);
+				Y.one("#" + effect + "_method").on("click", function () {
+					Y.one("#" + effect)[effect](options);
 				});
 			};
 			
@@ -255,12 +255,12 @@
 				bindEffect(effect, cfg[effect]);
 			}
 			
-			Y.get("#chaining_ctrl").on("click", function () {
-				Y.get("#chaining").blindUp().blindDown();
+			Y.one("#chaining_ctrl").on("click", function () {
+				Y.one("#chaining").blindUp().blindDown();
 			});
 			
-			Y.get("#chain2_ctrl").on("click", function () {
-				Y.get("#chain2").move({ x: 50, wait: false }).opacity({ from: 1.0, to: 0.5 });
+			Y.one("#chain2_ctrl").on("click", function () {
+				Y.one("#chain2").move({ x: 50, wait: false }).opacity({ from: 1.0, to: 0.5 });
 			});
 		});
 	</script>
